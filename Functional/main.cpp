@@ -4,13 +4,14 @@
 // 関数ポインタ＆関数オブジェクト
 
 
-// ふつうの関数
-int func(){
-  return 10;
+// ポインタにした関数
+int *func(){
+  int result = 10;
+  return &result;
 }
 
 int main(){
-  std::cout << func() << std::endl;
+  std::cout << *func() << std::endl;
   // 出力結果:10
 
   return 0;
