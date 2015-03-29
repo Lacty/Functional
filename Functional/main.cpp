@@ -4,32 +4,45 @@
 // 関数ポインタ＆関数オブジェクト
 
 
-// int型引数付き関数ポインタ
-int(*result)(int, int);
-int add(int x, int y){
-  return x + y;
-}
-int multi(int x, int y){
-  return x * y;
-}
+// 関数オブジェクト
+class FuncObject{
+public:
+
+  FuncObject() :
+  x(0), y(0) {}
+
+
+  void show(){
+    std::cout << "x:" << x << "\n" << "y:" << y << "\n" << std::endl;
+  }
+
+  //void operator()(){
+  //  std::cout << "x:" << x << "\n" << "y:" << y << "\n" << std::endl;
+  //}
+  //
+  //func_obj(1, 2)();ができるようになる
+
+  // ()演算子
+  // a():関数呼び出し
+  FuncObject& operator()(float fx, float fy){
+    x = fx;
+    y = fy;
+    return *this;
+  }
+
+
+private:
+
+  float x;
+  float y;
+};
 
 int main(){
-  int temp;
+  FuncObject func_obj;
+  func_obj.show();
 
-  {
-    result = add;
-    temp   = result(2, 5);
+  func_obj(1, 4);
+  func_obj.show();
 
-    std::cout << temp << std::endl;
-    // 出力結果：7
-  }
-
-  {
-    result = multi;
-    temp   = result(3, 4);
-
-    std::cout << temp << std::endl;
-    // 出力結果：12
-  }
   return 0;
 }
