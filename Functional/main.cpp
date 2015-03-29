@@ -4,15 +4,22 @@
 // 関数ポインタ＆関数オブジェクト
 
 
-// ポインタにした関数
-int *func(){
-  int result = 10;
-  return &result;
+// void型の関数ポインタ
+void(*sayMyName)();
+void cat(){
+  std::cout << "My Name Is Cat" << std::endl;
+}
+void dog(){
+  std::cout << "My Name Is Dog" << std::endl;
 }
 
 int main(){
-  std::cout << *func() << std::endl;
-  // 出力結果:10
+
+  sayMyName = cat;
+  sayMyName();
+
+  sayMyName = dog;
+  sayMyName();
 
   return 0;
 }
