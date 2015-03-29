@@ -1,4 +1,4 @@
 *.vcxproj
 *.vcxproj.filter
 
-/Debug
+/Functional/Debug
