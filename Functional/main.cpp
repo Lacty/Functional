@@ -4,22 +4,20 @@
 // 関数ポインタ＆関数オブジェクト
 
 
-// void型の関数ポインタ
-void(*sayMyName)();
-void cat(){
-  std::cout << "My Name Is Cat" << std::endl;
-}
-void dog(){
-  std::cout << "My Name Is Dog" << std::endl;
+// ふつうの関数で同じことができるかやってみた
+int *result();
+int hoge(){
+  return 10;
 }
 
 int main(){
+  *result() = hoge();
+  std::cout << result() << std::endl;
 
-  sayMyName = cat;
-  sayMyName();
+  // コンパイルエラーでた
+  // ダメな感じかな？
 
-  sayMyName = dog;
-  sayMyName();
+  // そもそもコードが汚いね
 
   return 0;
 }
